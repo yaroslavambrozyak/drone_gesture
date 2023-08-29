@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 from vision.handtracker import HandResult
 
 # Coordinates po
@@ -9,8 +11,8 @@ INDEX_FINGER_PIP_ID = 6
 INDEX_FINGER_TIP_ID = 8
 
 
-class AbstractGesture:
+class AbstractGesture(ABC):
 
-    def get_coordinate(self, hand: HandResult, coordinate_id: int, scale_id: int):
-        if hand:
-            return hand.landmarks[coordinate_id][scale_id]
+    @abstractmethod
+    def is_gesture(self, hand: HandResult) -> bool:
+        pass
