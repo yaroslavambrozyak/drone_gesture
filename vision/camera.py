@@ -28,14 +28,8 @@ class CV2CamFrameProvider(CamFrameProvider):
 class TelloDroneCamFrameProvider(CamFrameProvider):
 
     def __init__(self, drone):
-        self.drone = None
-
-        self.cap = cv2.VideoCapture(0)
+        self.drone = drone
 
     def get_frame(self):
-        # img = self.drone.get_frame_read().frame
-        # return True, img
-        success, img = self.cap.read()
-        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-        return success, img_rgb
+        img = self.drone.get_frame_read().frame
+        return True, img

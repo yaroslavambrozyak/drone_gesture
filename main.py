@@ -1,5 +1,5 @@
 import cv2
-from vision.handtracker import HandTracker
+from vision.handtracker import HandTracker, draw_shape_box
 import gesture.gesture as gesture
 from vision.camera import TelloDroneCamFrameProvider
 from djitellopy import tello
@@ -36,7 +36,7 @@ def main():
             gest = get_gesture(hand)
             if gest:
                 gest.do_command(drone)
-            tracker.draw_shape_box(img, hand)
+            draw_shape_box(img, hand)
 
         img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
         cv2.imshow("img", img_bgr)

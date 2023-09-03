@@ -111,9 +111,6 @@ class LeftPointingGesture(RateLimitedAbstractGesture):
 
         return False
 
-    def _is_rest_fingers_are_closed(self, hand: HandResult):
-        pass
-
 
 class RightPointingGesture(RateLimitedAbstractGesture):
 
